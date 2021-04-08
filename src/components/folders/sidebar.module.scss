@@ -1,0 +1,133 @@
+
+.folders{
+    height: 100vh;
+    display: flex;
+    background: #F5F6FA;
+
+}
+
+.tree{
+    padding: 2% 2%;
+    width: auto;
+}
+
+.tree li {
+    margin: 0px 0;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0px 0px;
+    
+}
+.tree li::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    right: auto;
+    left: -20px;
+    border-left: 2px solid #ccc;
+    bottom: 50px;
+}
+.tree li::after {
+    content:'';
+    position: absolute;
+    top: 30px;
+    width: 25px;
+    height: 20px;
+    right: auto;
+    left: -20px;
+    border-top: 2px solid #ccc;
+}
+.tree li a {
+    display: inline-block;
+    padding: 5px 5px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: #000;
+    font-family: arial, verdana, tahoma;
+    font-size: 12px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+/*Remove connectors before root*/
+ .tree > ul > li::before, .tree > ul > li::after {
+    border: 0;
+}
+/*Remove connectors after last child*/
+ .tree li:last-child::before {
+    height: 30px;
+}
+/*Time for some hover effects*/
+
+/*We will apply the hover effect the the lineage of the element also*/
+ .tree li a:hover, .tree li a:hover+ul li a {
+    background: #c8e4f8;
+    color: #000;
+}
+/*Connector styles on hover*/
+ .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
+    border-color: #94a0b4;
+}
+.foldersContent{
+
+    width: 80%;
+padding: 2%;
+display: flex;
+flex-wrap: wrap;
+background: #F5F6FA;
+}
+.pfc_content_item{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin:10px ;
+   display: flex;
+      height: 100px;
+      width: 400px;
+      background: #ffff
+      ;
+      padding: 15px;
+      border-radius: 8px;
+    margin-left: 12.5px;
+    align-items: center;
+    justify-content: space-around;
+      &_1{
+        border-radius: 8px;
+          display: flex;
+          align-items: center;
+          width: 80%;
+        justify-content: space-around;
+        height: 100%;
+
+      }
+      &_2{
+          display: flex;
+          align-items: center;
+          text-align: right;
+          width: 20%;  
+          height: 100%;
+        }
+      h5{
+          margin: 8px;
+          color:'#D0D1D7' i !important;
+          font-size: 22px;
+          font-weight: 500;
+          white-space: nowrap;
+        text-align: center;
+          overflow: hidden;
+          top: 40px;
+      }
+      p{
+        color: #b6c1c9;
+        font-size: 20px;
+        font-weight: 700;
+        white-space: nowrap;
+
+    ;
+
+
+      }
+  }
+img{
+    height: 60px;
+}
