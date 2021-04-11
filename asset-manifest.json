@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/tragedelSoftware/static/css/main.5e3b88a4.chunk.css",
+    "main.js": "/tragedelSoftware/static/js/main.3fae13b8.chunk.js",
+    "main.js.map": "/tragedelSoftware/static/js/main.3fae13b8.chunk.js.map",
+    "runtime-main.js": "/tragedelSoftware/static/js/runtime-main.f3da1800.js",
+    "runtime-main.js.map": "/tragedelSoftware/static/js/runtime-main.f3da1800.js.map",
+    "static/css/2.67211494.chunk.css": "/tragedelSoftware/static/css/2.67211494.chunk.css",
+    "static/js/2.d7e31d1b.chunk.js": "/tragedelSoftware/static/js/2.d7e31d1b.chunk.js",
+    "static/js/2.d7e31d1b.chunk.js.map": "/tragedelSoftware/static/js/2.d7e31d1b.chunk.js.map",
+    "static/js/3.d3a6fd0c.chunk.js": "/tragedelSoftware/static/js/3.d3a6fd0c.chunk.js",
+    "static/js/3.d3a6fd0c.chunk.js.map": "/tragedelSoftware/static/js/3.d3a6fd0c.chunk.js.map",
+    "index.html": "/tragedelSoftware/index.html",
+    "static/css/2.67211494.chunk.css.map": "/tragedelSoftware/static/css/2.67211494.chunk.css.map",
+    "static/css/main.5e3b88a4.chunk.css.map": "/tragedelSoftware/static/css/main.5e3b88a4.chunk.css.map",
+    "static/js/2.d7e31d1b.chunk.js.LICENSE.txt": "/tragedelSoftware/static/js/2.d7e31d1b.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/tragedelSoftware/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3da1800.js",
+    "static/css/2.67211494.chunk.css",
+    "static/js/2.d7e31d1b.chunk.js",
+    "static/css/main.5e3b88a4.chunk.css",
+    "static/js/main.3fae13b8.chunk.js"
+  ]
+}
