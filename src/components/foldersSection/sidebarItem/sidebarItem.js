@@ -12,30 +12,29 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
-const SidebarItem=({ item })=> {
-     
+import { FcOpenedFolder } from 'react-icons/fc'
+
+
+const SidebarItem=({ item })=> {    
        
       
     let children = null;
-    if (item.sub && item.sub.length) {
+    if (item.children && item.children.length) {
       children = (
-        <ul>
-          {item.sub.map((i) => (
+        <ul >
+          {item.children.map((i) => (
             <SidebarItem item={i} key={i.id} />
           ))}
         </ul>
       );
     }
-    console.log(item._id.$oid)
   
     return (
 
-      <li >
-          
-          
-          <Link to={"/folders/"+item._id.$oid} > <a style={{display:"flex",alignItems:"center"}}> <FolderOutlinedIcon  style={{color:'#FFA000',fontSize:"40px"}}  />  {item.name}</a> </Link>
+      <li > 
+        <Link to={"/folders/"+item._id} > <a style={{display:"flex",alignItems:"center"}}> <FcOpenedFolder size="2rem"/>  {item.name}</a> </Link>
         {children}
-      </li>
+      </li> 
 
     );
   }

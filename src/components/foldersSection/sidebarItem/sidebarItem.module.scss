@@ -1,3 +1,4 @@
+
 .tree li {
     margin: 0px 0;
     list-style-type: none;
@@ -41,7 +42,7 @@
 }
 /*Remove connectors after last child*/
  .tree li:last-child::before {
-    height: 30px;
+    height: 100px;
 }
 /*Time for some hover effects*/
 
@@ -57,4 +58,10 @@
 }
  ul > ul > li{
     color: red  !important;
+}
+li img{
+    height: 40px;
+}
+.tree{
+    border:2px solid red
 }

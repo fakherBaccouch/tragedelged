@@ -1,6 +1,5 @@
 import React from 'react'
-import Folders from '../components/folders/folders.js'
-import ProjectsNavbar from '../components/projectsNavbar/projectsNavbar'
+import Folders from '../components/foldersSection/folders/folders.js'
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,14 +15,7 @@ const Folderspage=()=>{
         <div style={{boxSizing:'border-box'}}>
             <div style={{display:'flex'}}>
          <div style={{width:'100%'}}>
-         <ProjectsNavbar/>
-         <Router>
-         <Switch>
-           <main >
-       <Route path="/folders"  component={Folders}/>
-       </main>
-         </Switch>
-         </Router>
+        <Folders/>
          </div>
          </div>
         </div>

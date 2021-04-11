@@ -1,21 +1,19 @@
 
 .folders{
-    height: 100vh;
-    display: flex;
-    background: #F5F6FA;
+display: flex;
 
 }
 
 .tree{
-    padding: 2% 2%;
-    width: auto;
+    width: 20%;
+    border: 1px solid rgba(34,36,38,.15);border-radius: 7px;
+   margin: 5px;
+   background: white;
 }
 
 .tree li {
-    margin: 0px 0;
     list-style-type: none;
     position: relative;
-    padding: 20px 5px 0px 0px;
     
 }
 .tree li::before {
@@ -32,20 +30,18 @@
 .tree li::after {
     content:'';
     position: absolute;
-    top: 30px;
-    width: 25px;
-    height: 20px;
+    top: 10px;
+    width: 15px;
+    height: 30px;
     right: auto;
     left: -20px;
     border-top: 2px solid #ccc;
 }
 .tree li a {
     display: inline-block;
-    padding: 5px 5px;
     text-decoration: none;
     letter-spacing: 2px;
     color: #000;
-    font-family: arial, verdana, tahoma;
     font-size: 12px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -57,7 +53,7 @@
 }
 /*Remove connectors after last child*/
  .tree li:last-child::before {
-    height: 30px;
+    height: 10px;
 }
 /*Time for some hover effects*/
 
@@ -70,64 +66,58 @@
  .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
     border-color: #94a0b4;
 }
+.folders{
+  padding: 2%;
+}
 .foldersContent{
-
-    width: 80%;
-padding: 2%;
-display: flex;
+ width: 60%;
+ margin: 5px;
+ padding: 2%;
+ background: #fff;
+border: 1px solid rgba(34,36,38,.15);border-radius: 7px;
+height: auto  !important;
+}
+.foldersItems{
+  display: flex;
 flex-wrap: wrap;
-background: #F5F6FA;
+align-items: flex-start;
+
 }
 .pfc_content_item{
+  background: #ECEFF3;
+
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin:10px ;
    display: flex;
-      height: 100px;
-      width: 400px;
-      background: #ffff
+      height: 30px;
+      width: 250px;
       ;
-      padding: 15px;
+      padding: 8px;
       border-radius: 8px;
     margin-left: 12.5px;
     align-items: center;
     justify-content: space-around;
-      &_1{
-        border-radius: 8px;
-          display: flex;
-          align-items: center;
-          width: 80%;
-        justify-content: space-around;
-        height: 100%;
-
-      }
-      &_2{
-          display: flex;
-          align-items: center;
-          text-align: right;
-          width: 20%;  
-          height: 100%;
-        }
-      h5{
+     height: 100%;
+        
+      h3{
           margin: 8px;
           color:'#D0D1D7' i !important;
           font-size: 22px;
           font-weight: 500;
           white-space: nowrap;
-        text-align: center;
+        text-align: left;
           overflow: hidden;
-          top: 40px;
+          
       }
       p{
-        color: #b6c1c9;
-        font-size: 20px;
-        font-weight: 700;
-        white-space: nowrap;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: rgba(38,38,38,0.4);
 
     ;
 
 
       }
   }
-img{
-    height: 60px;
-}
