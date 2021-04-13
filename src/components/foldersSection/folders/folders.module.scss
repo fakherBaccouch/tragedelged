@@ -1,20 +1,19 @@
 
-.folders{
-display: flex;
-
-}
 
 .tree{
     width: 20%;
     border: 1px solid rgba(34,36,38,.15);border-radius: 7px;
    margin: 5px;
    background: white;
+   height: auto;
+   box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
+   overflow-y: scroll;
+
 }
 
 .tree li {
     list-style-type: none;
     position: relative;
-    
 }
 .tree li::before {
     content:'';
@@ -67,8 +66,12 @@ display: flex;
     border-color: #94a0b4;
 }
 .folders{
-  padding: 2%;
+  padding: 2% 2%;
+  display: flex;
+  height: 90vh;
 }
+
+
 .foldersContent{
  width: 60%;
  margin: 5px;
@@ -76,48 +79,27 @@ display: flex;
  background: #fff;
 border: 1px solid rgba(34,36,38,.15);border-radius: 7px;
 height: auto  !important;
+max-width:  60vw;
+height: auto;
+box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
+
 }
 .foldersItems{
-  display: flex;
-flex-wrap: wrap;
-align-items: flex-start;
-
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.pfc_content_item{
-  background: #ECEFF3;
+.foldersRight{
+  width: 20%;
+  margin: 5px;
+  padding: 2%;
+  background: #fff;
+ border: 1px solid rgba(34,36,38,.15);border-radius: 7px;
+ height: auto  !important;
+ max-width:  60vw;
+ box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin:10px ;
-   display: flex;
-      height: 30px;
-      width: 250px;
-      ;
-      padding: 8px;
-      border-radius: 8px;
-    margin-left: 12.5px;
-    align-items: center;
-    justify-content: space-around;
-     height: 100%;
-        
-      h3{
-          margin: 8px;
-          color:'#D0D1D7' i !important;
-          font-size: 22px;
-          font-weight: 500;
-          white-space: nowrap;
-        text-align: left;
-          overflow: hidden;
-          
-      }
-      p{
-        font-size: 13px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: rgba(38,38,38,0.4);
+ }
+ 
 
-    ;
-
-
-      }
-  }

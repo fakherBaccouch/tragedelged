@@ -1,6 +1,7 @@
 import React from "react"
 import style from './navbar.module.scss'
 import MenuIcon from '@material-ui/icons/Menu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 const Navbar=(props)=>{
 return(
     <div className={style.navbar}>
@@ -11,8 +12,10 @@ return(
          </div>
          <div className={style.navbar_right}>
 
-             <img src="/logo512.png" />
+             <img src="/pdp.jpg" />
              <div className={style.navbar_right_description}><h4>Fakher Baccouch</h4><span>Super Admin</span></div>
+             &nbsp;<ExitToAppIcon fontSize='large' />             
+
          </div>
 
     </div>

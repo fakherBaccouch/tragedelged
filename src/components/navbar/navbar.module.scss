@@ -1,7 +1,7 @@
 .navbar{
     width: 100%;
     height: auto;
-    background-color: #fff;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,14 +24,15 @@
     &_right{
         display: flex;
         align-items: flex-end;
-        width: auto;
+        width: 20%;
         justify-content: space-between;
         margin: 5px;
- 
+ align-items: center;
         img{
             display: flex;
             align-items: center;
             height: 70px;
+            border-radius: 50%;
         }
         &_description{
             display: flex;

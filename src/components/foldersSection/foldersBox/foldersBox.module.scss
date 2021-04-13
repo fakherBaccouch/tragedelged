@@ -1,14 +1,21 @@
+.foldersBox{
+  margin: 5% 0;
+
+}
+.foldersBox_items{
+  display: flex;
+  flex-wrap: wrap;
+}
 .foldersBox_item{
-    background: #ECEFF3;
-  
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: #F5F6FB;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
       margin:10px ;
      display: flex;
         height: 30px;
         width: 250px;
-        ;
+       
         padding: 8px;
-        border-radius: 8px;
+        border-radius: 5px;
       margin-left: 12.5px;
       align-items: center;
       justify-content: space-around;
@@ -29,11 +36,14 @@
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.04em;
-          color: rgba(38,38,38,0.4);
-  
-      ;
+          color: rgba(38,38,38,0.4);;
   
   
+        }
+        img{
+          height: 60px;
+          width: 40px;
+
         }
     }
   

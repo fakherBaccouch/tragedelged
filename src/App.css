@@ -3,12 +3,11 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box  !important;
-  font-family: 'Montserrat', sans-serif !important;
-  display: flex;
+  font-family: 'Open Sans', sans-serif;  display: flex;
 box-sizing: border-box;
 padding: 0;
 margin: 0;
-background: #EEF0F1;
+background: #F5F6FB;
 }
 *{
   box-sizing: border-box;

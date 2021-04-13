@@ -44,7 +44,7 @@ function App() {
           {history.location.pathname !== "/signin" && <Navbar toggle={() => clickMe()} />}
           <Switch>
             <Route exact path="/signin">          <SignIn />           </Route>
-            <Route path="/folders">         <Folderspage />      </Route>
+            <Route   path="/folders">         <Folderspage />      </Route>
           </Switch>
         </main>
       </Router>

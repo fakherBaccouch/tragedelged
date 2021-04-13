@@ -2,7 +2,9 @@ import React from "react"
 import { SiMicrosoftexcel } from "react-icons/si";
 import style from "./foldersRight.module.scss";
 import download from "downloadjs";
-import { Button, Card, Image,Icon,Label } from 'semantic-ui-react'
+import {  Card, Image,Icon,Label } from 'semantic-ui-react'
+import Button from '@material-ui/core/Button';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -28,29 +30,7 @@ const downloadFile =  () => {
 
     return(
         <div className={style.foldersRight}>
-   <Card>
-    <Card.Content>
-      <Card.Header>            {fileId}
-</Card.Header>
-      <Card.Meta>
-        <span className='date'>{fileId}</span>
-      </Card.Meta>
-      <Card.Description>
-        Matthew is a musician living in Nashville.
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-    <Button as='div' labelPosition='right'>
-    <Button color='green' onClick={downloadFile}>
-        <Icon name='download' />
-        download
-      </Button>
-      <Label as='a' basic color='blue' pointing='left'>
-        2,048
-      </Label>
-      </Button>
-    </Card.Content>
-  </Card>
+    <Button variant="outlined">Download</Button>
         </div>
     )
 }

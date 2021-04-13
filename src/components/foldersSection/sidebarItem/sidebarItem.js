@@ -3,6 +3,7 @@ import { $, jQuery } from 'jquery';
 import style from './sidebarItem.module.scss'
 import {FolderCloseIcon,Icon}from 'evergreen-ui'
 import FolderOutlinedIcon from '@material-ui/icons/FolderOutlined';
+import {FcFolder} from "react-icons/fc";
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,7 +33,7 @@ const SidebarItem=({ item })=> {
     return (
 
       <li > 
-        <Link to={"/folders/"+item._id} > <a style={{display:"flex",alignItems:"center"}}> <FcOpenedFolder size="2rem"/>  {item.name}</a> </Link>
+        <Link to={"/folders/"+item._id} > <a style={{display:"flex",alignItems:"center"}}> <FcFolder style={{marginRight:'5px',fontSize:'2rem'}} />  {item.name}</a> </Link>
         {children}
       </li> 
 
