@@ -3,52 +3,63 @@ import Folderspage from './pages/folderspage'
 import Navbar from "./components/navbar/navbar"
 import Sidenav from "./components/sidenav/sidenav"
 import SignIn from "./components/logSection/signin/signin"
+import SignUp from "./components/logSection/signup/signup"
 import 'semantic-ui-css/semantic.min.css'
 import { useHistory } from "react-router-dom";
 import './App.css';
-import {useEffect, useState} from "react"
-import { BrowserRouter as Router, Switch, Route, Link, useParams} from "react-router-dom";
+import {useEffect, useState,useMemo} from "react"
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {UidContext} from './components/AppContext';
-import Axios from 'axios';
 import axios from 'axios';
-
-
+import PrivateRoute from "./privateRoute"
+import {useUid} from "./components/AppContext"
+import { UidProvider } from "./components/AppContext"
 
 function App() {
-  const [uid,setUid]=useState(null);
-  useEffect(()=>{
-    axios({
-      method: 'get',
-      url:`${process.env.REACT_APP_API_URL}jwtid`,
-      withCredentials: true
-    })
-    .then((res)=> {setUid(res.data);console.log(uid)})
-    .catch((err)=> console.log('no token'))
-  
-      
-},[uid]);
+  const [uid, setUid] = useState();
+
+  useEffect(() => {
+
+   
+       axios({
+        method: 'get',
+        url: `${process.env.REACT_APP_API_URL}jwtid`,
+        withCredentials: true
+      })
+        .then( (res) => { setUid(res.data); console.log('uid', uid) })
+        .catch((err) => console.log('no token'))
+        console.log("toekn", localStorage.getItem("jwtid"))
+
+  }, []);
+
+
   let history = useHistory();
-  const [isClicked,setIsClicked]=useState(true);
-  const clickMe=()=>{
+  const [isClicked, setIsClicked] = useState(true);
+  const clickMe = () => {
     setIsClicked(!isClicked);
     console.log(history.location.pathname)
   }
+  
 
   return (
     <UidContext.Provider value={uid}>
-          <div className="App">
+       <Router>
 
-      <Router>
-        {history.location.pathname !== "/signin" && <Sidenav toggle={isClicked} />}
-        <main >
-          {history.location.pathname !== "/signin" && <Navbar toggle={() => clickMe()} />}
-          <Switch>
-            <Route exact path="/signin">          <SignIn />           </Route>
-            <Route   path="/folders">         <Folderspage />      </Route>
-          </Switch>
-        </main>
-      </Router>
-      </div>
+<div className="App">
+
+<Sidenav toggle={isClicked} />
+
+<main className={isClicked?"contentLess":"content"} >
+<Navbar userid={uid}  toggled={isClicked} toggle={() => clickMe()} />
+<Switch>
+<PrivateRoute  path="/signin" component={SignIn} />
+<PrivateRoute  path="/signup" component={SignUp} />
+  <PrivateRoute    path="/folders">         <Folderspage />          </PrivateRoute>
+</Switch>
+</main>
+</div>
+</Router>
+
     </UidContext.Provider>
   );
 }

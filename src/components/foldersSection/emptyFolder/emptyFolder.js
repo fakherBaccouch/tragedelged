@@ -1,12 +1,11 @@
 import React from "react"
 import style from "./emptyFolder.module.scss"
-
-import { BsFolder } from "react-icons/bs";
+import img from "./emptyFolder.png"
 
 const EmptyFolder=()=>{
     return(
         <div className={style.emptyFolder}>
-    <BsFolder style={{fontSize:'200px'}}/>
+    <img  src={img}/>
     <h2 >There are no items in this folder</h2>
     <h4 >YOU CAN ADD FOLDERS OR UPLOAD FILES </h4>
         </div>

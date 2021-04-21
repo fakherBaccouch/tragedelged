@@ -1,0 +1,29 @@
+#dropdown{
+    text-align: center;
+    height: auto;
+    -webkit-transform: translate3d(-100%, 0px, 0px);
+    transform: translate3d(-100%, 0px, 0px);
+    visibility: visible;
+    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+    margin-bottom: 8px;
+   h4, input,button{
+        margin-top: 20px;
+    }
+  
+}
+.afDrop{
+    text-align: center;
+    background: #F5F5F5;
+    border-radius: 5px;
+    margin-top: 2%;
+    -webkit-transform: translate3d(-100%, 0px, 0px);
+    transform: translate3d(-100%, 0px, 0px);
+    visibility: visible;
+    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0px, 0px, 0px);
+}

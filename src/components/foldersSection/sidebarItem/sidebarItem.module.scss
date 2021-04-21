@@ -1,6 +1,5 @@
 
 .tree li {
-    margin: 0px 0;
     list-style-type: none;
     position: relative;
 }
@@ -12,7 +11,7 @@
     height: 100%;
     right: auto;
     left: -20px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #000;
     bottom: 50px;
 }
 .tree li::after {

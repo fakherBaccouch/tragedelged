@@ -1,16 +1,10 @@
-import React from 'react'
+import {React,useContext} from 'react'
 import Folders from '../components/foldersSection/folders/folders.js'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect,
-    useHistory,
-    useLocation
-  } from "react-router-dom";
+import {UidContext} from '../components/AppContext';
+import {Redirect} from 'react-router-dom'
 const Folderspage=()=>{
-
+    const  uid  = useContext(UidContext);
+console.log("folderspage",uid)
     return (
         <div style={{boxSizing:'border-box'}}>
             <div style={{display:'flex'}}>

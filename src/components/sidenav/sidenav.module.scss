@@ -4,8 +4,7 @@ $black:#14171A;
     min-height: 100VH;
     top: 0;
   bottom: 0;
-  background: #FFFFFF;
-   width: 20%;
+  background-color: #0072b1;
     text-align: center;
     overflow: hidden;
     padding: 2% 0;
@@ -24,32 +23,48 @@ $black:#14171A;
     flex-direction: column;
 
     justify-content: space-between;
+    min-height: 100vh;
+    width: 299px;
     &_brand{
-        color: white;
-        height: 10%;
+        height: 20%;
+        width: 100%;
+        img{
+          width: 100%;
+        }
+
     }
     &_list{
         width: 100%;
-        height: 90%;
+        height: 80%;
          ul{
              display: flex;
              flex-direction: column;
+             align-items: flex-end;
+
              li{
                display: flex;
                align-items: center;
-               padding:0% 10%;
                height:60px;
-               margin-bottom: 10px;
-               
+                 width: 80%;
+                 margin-bottom: 1.5rem;
                a{
-                color: #6e6d7a ;
-                font-size: 20px;
-                letter-spacing: 2px;
+                   justify-content: space-evenly;
+                color: #FFFFFf ;
+                font-size: 18px;
+                letter-spacing: 1px;
                 font-weight: bold  !important;
-               
-                line-height: 20%  ;
+                width: 10vw;
+                line-height:2 ;
+
                    display: flex;
-                justify-content: space-around;
+                   align-items: center i !important;
+                   text-align: right;
+                   span{
+                     width: 40%;
+                     text-align: left;
+                     font-weight: 500;
+                     text-transform: normal;
+                   }
 
                            
 } }
@@ -59,16 +74,22 @@ $black:#14171A;
 }
 .active{
   
-  background: #DDEBF7  ;
+  background: linear-gradient(
+    181.6deg
+    ,#f7fbfe .74%,#fff 76.68%)  ;
   border-radius: 50px 0  0 50px;
-  
+  border-radius: -50px;
+  margin-right:-4px;
+
   a{
-  color:#1070CA
+  color:#0072b1
   !important;
   margin: 4%;
   width: 100%;
-
  position: relative;
- left: 10%;
+ left: 2%;
   }
+ }
+ .sidebarLess{
+   display: none;
  }

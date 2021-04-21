@@ -1,0 +1,212 @@
+$y :#0072b1;;
+$B: #121212;
+$L_B: #1B1B1B;
+.button {
+    background-color: #4CAF50;
+    /* Green */
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    &_signin {
+        background-color: grey;
+        border-radius: 4px;
+        font-weight: bold;
+        width: 60%;
+        text-align: center;
+        margin-left: 20%;
+        width: 60%;
+        margin-right: 20%;
+    }
+    &_signin:hover {
+        background: $y;
+        color: black;
+    }
+    &_to_signup {
+        background-color: white;
+        color: $y;
+        border: 3px solid $y;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-left: 20%;
+        width: 60%;
+        margin-right: 20%;
+        margin-bottom: 20px;
+    }
+    &_to_signup:hover {
+        background: $y;
+        color: black;
+        border: 2px solid grey;
+    }
+}
+
+.button4 {
+    font-weight: bold;
+    background-color: $y;
+    text-align: center;
+    color: black;
+    border-radius: 5px
+}
+
+
+/* Gray */
+
+.first {
+    clip-path: polygon(100% 0, 0% 100%, 0 0);
+    background: $y;
+}
+
+.second {
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    background: $L_B;
+}
+
+.signin {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &_container {
+        margin: auto;
+        margin-bottom: 100px;
+        border-radius: 3px;
+        width: 40%;
+        margin-top: 100px;
+        background: white;
+        padding: 10px;
+    }
+}
+
+.group {
+    position: relative;
+    margin: 50px;
+}
+
+input {
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border: 1px solid grey;
+    &:focus {
+        outline: none;
+        border: 1px solid $y
+    }
+    &:focus~label,
+    &:valid~label {
+        top: -20px;
+        font-size: 14px;
+    }
+    &:focus~.bar:before,
+    &:focus~.bar:after {
+        width: 50%;
+    }
+    &:focus~.highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        -moz-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+    }
+}
+
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: $B;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: $L_B;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: $y;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+#signin_title {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-weight: 700;
+    color: $L_B;
+}
+
+.logout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $y;
+    &_header {
+        margin-top: 100px;
+    }
+}
+
+.logout_nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.logout_button:hover {
+    background-color: $y;
+    border: 1px solid white;
+}
+
+.checkout {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

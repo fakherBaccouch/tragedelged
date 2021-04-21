@@ -1,24 +1,10 @@
-import{React,useEffect ,Component} from 'react'
-import { $, jQuery } from 'jquery';
-import style from './sidebarItem.module.scss'
-import {FolderCloseIcon,Icon}from 'evergreen-ui'
-import FolderOutlinedIcon from '@material-ui/icons/FolderOutlined';
+import React from 'react'
 import {FcFolder} from "react-icons/fc";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation
-} from "react-router-dom";
-import { FcOpenedFolder } from 'react-icons/fc'
+import HD from "./newDisk.png"
+import { Link} from "react-router-dom";
 
 
-const SidebarItem=({ item })=> {    
-       
-      
+const SidebarItem=({ item })=> {     
     let children = null;
     if (item.children && item.children.length) {
       children = (
@@ -31,12 +17,10 @@ const SidebarItem=({ item })=> {
     }
   
     return (
-
       <li > 
-        <Link to={"/folders/"+item._id} > <a style={{display:"flex",alignItems:"center"}}> <FcFolder style={{marginRight:'5px',fontSize:'2rem'}} />  {item.name}</a> </Link>
+        <Link to={"/folders/"+item._id} > <a style={{display:"flex",alignItems:"center"}}>{item.parentId?<div> <FcFolder style={{marginRight:'5px',fontSize:'1.8rem'}} /></div>:<div><img src={HD} style={{height:'35px'}}/></div>} <div>  {item.name}</div></a> </Link>
         {children}
       </li> 
-
     );
   }
 export default SidebarItem
