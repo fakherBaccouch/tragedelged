@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './filesBox.module.scss'
 import { FileIcon, defaultStyles } from 'react-file-icon';
-
+import moment from 'moment'
 
 export default function FilesBox(props) {
 
@@ -46,8 +46,12 @@ export default function FilesBox(props) {
                     <td style={{ textAlign: 'left', maxWidth: "40%",width:'40%',wordBreak: "break-word" }} component="th" scope="row">
                     <div style={{wordBreak:"break-word"}} className={style.tdName}>   {file.nom.split('.')[0]}</div>    
                     </td>
-                    <td style={{ textAlign: 'left', maxWidth: "20%",width:'20%'}}>                    <div  className={style.tdPb}>   Fakher baccouch</div></td>
-                    <td >April 15,2021</td>
+                    <td style={{ textAlign: 'left', maxWidth: "20%",width:'20%'}}>                    <div  className={style.tdPb}>   {file.createdBy.username}</div></td>
+                    <td >
+                  <div>    {moment(file.createdAt).format('L')}</div>
+                  <div>   {moment(file.createdAt).format('h:mm:ss a')}</div>
+                     
+                     </td>
                     <td align='center'>   <div className={style.download}>   Download</div></td>
 
                   </tr>

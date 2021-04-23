@@ -75,15 +75,19 @@ const FoldersContent = ({ match }) => {
   const [subs, setSubs] = useState([])
   const [files, setFiles] = useState(null)
 
-  useEffect(() => {
+  useEffect( () => {
 
-    Axios.get(`http://localhost:1212/api/folder/${id}`)
+    Axios.get(`http://localhost:1212/api/user/filenotifUpdate/${id}`,{
+      withCredentials: true
+    })   
+
+    Axios.get(`http://localhost:1212/api/folder/${id}`,{withCredentials:true})
       .then(res => { setSubs(res.data.folderList); })
 
-    Axios.get(`http://localhost:1212/api/file/${id}`)
+    Axios.get(`http://localhost:1212/api/file/${id}`,{withCredentials:true})
       .then(res => { setFiles(res.data); })
      
-    Axios.get(`http://localhost:1212/api/user/filenotifUpdate/${id}`)      
+   
 
   }, [id]);
   

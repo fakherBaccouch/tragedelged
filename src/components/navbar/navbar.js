@@ -2,11 +2,11 @@ import React ,{useContext, useState} from "react"
 import style from './navbar.module.scss'
 import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Image from './pdp.jpg'
-import Brand from "./tragedel.png"
-import {useLocation } from 'react-router-dom'
+import Image from './pdp.jpg';
+import Brand from "./tragedel.png";
+import {useLocation } from 'react-router-dom';
 import { useEffect } from "react/cjs/react.development";
-import axios from "axios"
+import axios from "axios";
 import  cookie from "js-cookie"
 import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsActiveOutlined';
 import {UidContext} from '../AppContext';
@@ -21,6 +21,7 @@ const Navbar = (props) => {
 
   let pathNavbar = location.pathname.split("/")[1].toUpperCase();
   const [fileNotif, setFileNotif] = useState(null);
+  const [user, setUser] = useState({});
   const [notifDropdown, setNotifDropdown] = useState(false)
   const removeCookie = (key) => {
     if (window !== "undefined") {
@@ -33,7 +34,7 @@ const Navbar = (props) => {
       method: 'get',
       url: 'http://localhost:1212/api/user/logout',
       withCredentials: true,
-    }).then(async ()  =>  await removeCookie("jwt"),            window.location = "/"    ).then(()=>            window.location = "/")
+    }).then(async ()  =>  await removeCookie("jwt"), window.location = "/").then(()=> window.location = "/")
       .catch((err) => console.log(err))
   }
   useEffect(() => {
@@ -48,6 +49,17 @@ const Navbar = (props) => {
         .then((res) => { setFileNotif(res.data); console.log('fileNotif', res.data) })
         .catch((err) => console.log('no file notifs'))
     }
+  
+      const fetchUser = async () => {
+        await axios({
+          method: 'get',
+          url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
+          withCredentials: true
+        })
+          .then((res) => { setUser(res.data); console.log('User', res.data) })
+          .catch((err) => console.log('no user'))
+      }
+      fetchUser();
     fetchFileNotif();
   }, [uid]);
 
@@ -58,7 +70,7 @@ const Navbar = (props) => {
       </div>
       {fileNotif && fileNotif.length > 0 &&
         <div className={style.navbar_center} >
-          <div onClick={() => setNotifDropdown(!notifDropdown)} className={style.notificationsBox}><div><NotificationsActiveOutlinedIcon style={{ fontSize: '35px',color:props.toggled?'black':'white' }} /></div> <div className={style.notifNumber}> {fileNotif.length}</div> </div>
+          <div onClick={() => setNotifDropdown(!notifDropdown)} className={style.notificationsBox}><div style={{background:"blue"}}>NEW FILES <NotificationsActiveOutlinedIcon style={{ fontSize: '35px',color:props.toggled?'black':'white' }} /></div> <div className={style.notifNumber}> {fileNotif.length}</div> </div>
           <div style={{ display: notifDropdown ? "block" : "none" }} className={style.listDropdown}>
             
             <div className={style.listDropdown_head}>
@@ -71,9 +83,9 @@ const Navbar = (props) => {
           })}</div></div>
         </div>
       }
-    {uid ?<div className={style.navbar_right}>
-        <img src={Image} />
-        <div className={style.navbar_right_description}><h4>Fakher Baccouch</h4><span style={{ color: !props.toggled ? '#000' : '' }}  >Super Admin</span></div>
+    {props.userid ?<div className={style.navbar_right}>
+        <img src={`http://localhost:1212${user.picture}`} alt='user picture'/>
+        <div className={style.navbar_right_description}><h4>{user.username}</h4><span style={{ color: !props.toggled ? '#000' : '' }}  >{user.role}</span></div>
              &nbsp;<ExitToAppIcon style={{ cursor: 'pointer' }} onClick={logout} fontSize='large' />
       </div>:<div className={style.navbar_right_log} >
   <a href='/signup'  >    <Button content='Signup' style={{height:"80%"}}  /> </a> 

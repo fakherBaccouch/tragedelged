@@ -40,9 +40,9 @@ let password=passwordRef.current.value
         .then((res) => {
           console.log(res);
           if (res.data.errors) {
-          console.log(res.data.errors);
+          console.log(res.data);
           } else {
-            window.location = "/";
+            window.location = "/folders";
           }
         })
         .catch((err) => {
@@ -56,19 +56,7 @@ let password=passwordRef.current.value
     setLoading(false)
 
   }
-useEffect(
-    ()=>{
-      document.getElementById('navbar').style.display = "none";
-      
-    }
-  )
-  useEffect(() => {
-    console.log('Hello World');
-    return () => {
-      document.getElementById('navbar').style.display = "flex";
 
-    }
-}, [])
     return(
         <div className="signin">
     <div style={{position:"relative"}} className="signin_container">

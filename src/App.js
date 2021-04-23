@@ -1,11 +1,14 @@
 import './App.css';
+import {useLocation } from 'react-router-dom'
+import { Roller } from 'react-awesome-spinners'
+
 import Folderspage from './pages/folderspage'
 import Navbar from "./components/navbar/navbar"
 import Sidenav from "./components/sidenav/sidenav"
 import SignIn from "./components/logSection/signin/signin"
 import SignUp from "./components/logSection/signup/signup"
 import 'semantic-ui-css/semantic.min.css'
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import './App.css';
 import {useEffect, useState,useMemo} from "react"
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -14,36 +17,64 @@ import axios from 'axios';
 import PrivateRoute from "./privateRoute"
 import {useUid} from "./components/AppContext"
 import { UidProvider } from "./components/AppContext"
-
+import setData from "react"
 function App() {
-  const [uid, setUid] = useState();
-
+  const [uid, setUid] = useState(null);
+  const [loading,setLoading]=useState(false)
   useEffect(() => {
-
-   
-       axios({
+    setLoading(true)
+ axios({
         method: 'get',
         url: `${process.env.REACT_APP_API_URL}jwtid`,
         withCredentials: true
       })
-        .then( (res) => { setUid(res.data); console.log('uid', uid) })
-        .catch((err) => console.log('no token'))
-        console.log("toekn", localStorage.getItem("jwtid"))
+      .then(
+        res => {
+             if(res.data.status == false){
+               setUid(false)
+             }else{
+              setUid(res.data)
 
-  }, []);
+             }
+            }
+    ).catch(
+      (errors)=>
+      console.log(errors)
+    )
+
+  }
+  , []);
+useEffect(
+  ()=>{    
+    if(uid !== null){
+      setLoading(false)
+    }
+  },[uid])
 
 
-  let history = useHistory();
-  const [isClicked, setIsClicked] = useState(true);
+
+
+ let history = useHistory();
+  const [isClicked, setIsClicked] = useState(false);
   const clickMe = () => {
     setIsClicked(!isClicked);
     console.log(history.location.pathname)
   }
-  
 
-  return (
+  const location = useLocation();
+console.log(location.pathname)
+  
+{ if(loading || uid == null){return <div>Loading ..</div> }
+else if( uid == false){
+ if(location.pathname == '/signup'){
+   return <SignUp/>
+ }else{
+   return <SignIn/>
+ }
+}else{
+  return  (
     <UidContext.Provider value={uid}>
-       <Router>
+    <Router>
 
 <div className="App">
 
@@ -52,16 +83,28 @@ function App() {
 <main className={isClicked?"contentLess":"content"} >
 <Navbar userid={uid}  toggled={isClicked} toggle={() => clickMe()} />
 <Switch>
-<PrivateRoute  path="/signin" component={SignIn} />
-<PrivateRoute  path="/signup" component={SignUp} />
-  <PrivateRoute    path="/folders">         <Folderspage />          </PrivateRoute>
+<Route  path="/signin" component={SignIn} />
+<Route  path="/signup" component={SignUp} />
+<Route    path="/folders">         <Folderspage />          </Route>
 </Switch>
 </main>
 </div>
 </Router>
 
-    </UidContext.Provider>
-  );
+ </UidContext.Provider>
+  )
+}
+
+
+
+
+
+}     
+
+
+
+
+
 }
 
 export default App;

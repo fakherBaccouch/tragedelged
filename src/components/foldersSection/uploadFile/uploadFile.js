@@ -6,7 +6,7 @@ import { useParams} from "react-router-dom";
 import style from './uploadFile.module.scss'
 import { Button as Btn } from 'semantic-ui-react'
 
-const UploadFile = () => {
+const UploadFile = (props) => {
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -25,8 +25,9 @@ const UploadFile = () => {
     formData.append('file', file);
     formData.append('description', 'description paragraph');
     formData.append('folder', id);
+    formData.append('tabUser',props.userTab);
     try {
-      const res = await axios.post('http://localhost:1212/api/file/upload', formData, {
+      const res = await axios.post('http://localhost:1212/api/file/upload', formData,{withCredentials:true}, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -55,7 +56,7 @@ const UploadFile = () => {
       }
     }
   };
-
+       
   return (
     <div style={{width:'100%',overflow:'hidden',textAlign:'center'}}>
       {message ? <Message msg={message} /> : null}
@@ -73,7 +74,6 @@ const UploadFile = () => {
         <Progress percentage={uploadPercentage} />
                    <Btn style={{marginBottom:'8px'}}  positive>Upload file</Btn>
       </form>
-    
     </div>
   );
 };

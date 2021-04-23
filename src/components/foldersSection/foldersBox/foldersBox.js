@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import style from './foldersBox.module.scss'
 import { FcFolder } from "react-icons/fc";
+import moment from 'moment'
 
 const FoldersBox = (props) => {
 
@@ -15,7 +16,6 @@ const FoldersBox = (props) => {
             <tr>
               <th><h4>Folder</h4></th>
               <th><h4>Folder Name</h4> </th>
-              <th><h4>Created By</h4></th>
               <th><h4>Creation Date</h4></th>
               <th><h4>Sub folders</h4></th>
             </tr>
@@ -28,10 +28,11 @@ const FoldersBox = (props) => {
                 <td style={{ textAlign: 'left', maxWidth: "40%", width: '40%', wordBreak: "break-word" }} component="th" scope="row">
                   <div style={{ wordBreak: "break-word" }} className={style.tdName}>   {sub.name}</div>
                 </td>
-                <td style={{ textAlign: 'left', maxWidth: "20%", width: '20%' }} component="th" scope="row">
-                  <div className={style.tdPb}>   Fakher baccouch</div>
-                </td>
-                <td>April 15,2021</td>
+
+                <td>
+                <div>    {moment(sub.createdAt).format('L')}</div>
+                  <div>   {moment(sub.createdAt).format('h:mm:ss a')}</div>
+                  </td>
                 <td align="center">   {sub.children?.length}</td>
               </tr>
             ))}
