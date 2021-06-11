@@ -1,3 +1,75 @@
+// .tree{
+//     width: 20%;
+//     max-width: 20%;
+//     border: 1px solid rgba(34,36,38,.15);
+//     border-radius: 10px;
+//    background: white;
+//    height: auto;
+//    box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
+//    overflow-y: auto;
+// overflow-x: hidden;
+// }
+
+// .tree  li {
+//     list-style-type: none;
+//     position: relative;
+   
+// }
+// .tree  li::before {
+//     content:'';
+//     position: absolute;
+//     top: 0;
+//     width: 1px;
+//     height: 100%;
+//     right: auto;
+//     left: -20px;
+//     border-left: 2px solid #ccc;
+//     bottom: 50px;
+// }
+// .tree  li::after {
+//     content:'';
+//     position: absolute;
+//     top: 10px;
+//     width: 15px;
+//     height: 30px;
+//     right: auto;
+//     left: -20px;
+//     border-top: 2px solid #ccc;
+// }
+// .tree  li a {
+//     display: inline-block;
+//     text-decoration: none;
+//     letter-spacing: 2px;
+//     color: #000;
+//     font-size: 14px;
+//     border-radius: 5px;
+//     -webkit-border-radius: 5px;
+//     -moz-border-radius: 5px;
+//     font-weight: 500;
+//     word-break: break-word;
+//     display: flex;
+//     justify-content: space-between;
+
+// }
+// /*Remove connectors before root*/
+//  .tree  > ul > li::before, .tree  > ul > li::after {
+//     border: 0;
+// }
+// /*Remove connectors after last child*/
+//  .tree  li:last-child::before {
+//     height: 10px;
+// }
+// /*Time for some hover effects*/
+
+// /*We will apply the hover effect the the lineage of the element also*/
+//  .tree  li a:hover, .tree li a:hover+ul li a {
+//     background: #c8e4f8;
+//     color: #000;
+// }
+// /*Connector styles on hover*/
+//  .tree  li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
+//     border-color: #94a0b4;
+// }
 .tree{
     width: 20%;
     max-width: 20%;
@@ -70,27 +142,25 @@
  .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
     border-color: #94a0b4;
 }
-
 .folders{
   padding: 1%;
   display: flex;
   height: 92vh;
    width: 100%;
+   border: 2px solid;
 }
 
 
 .foldersContent{
  width: 60%;
- max-width: 60%;
  min-width: 60%;
  padding:0 1%;
  background: #fff;
 border: 1px solid rgba(34,36,38,.15);border-radius: 10px;
 height: auto  !important;
-max-width:  60vw;
-height: 80vh;
 box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
 overflow-y: hidden;
+flex-grow: 1;
 }
 .foldersItems{
     height: 100%;
@@ -105,9 +175,10 @@ overflow-y: hidden;
   padding: 1%;
   background: #fff;
  border: 1px solid rgba(34,36,38,.15);border-radius: 10px;
+ box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
+
  height: auto  !important;
 
- box-shadow:  0 0px 1px rgb(0 0 0 / 20%), 0 8px 16px rgb(0 0 0 / 10%);;
 
  }
  

@@ -97,7 +97,7 @@ const Signup = () => {
                             ref={usernameRef} type="text" required></input>
                         <span class="highlight"></span>
 
-                        <label>firstname</label>
+                        <label>username</label>
                     </div>
 
 

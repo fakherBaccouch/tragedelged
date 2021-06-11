@@ -1,7 +1,7 @@
 {
-  "name": "tragedelSoftware",
+  "name": "tragedelged",
   "version": "0.1.0",
-  "homepage": "http://fakherBaccouch.github.io/tragedelSoftware",
+  "homepage": "http://fakherBaccouch.github.io/tragedelged",
   "private": true,
   "dependencies": {
     "@drawbotics/file-icons": "^0.1.3",

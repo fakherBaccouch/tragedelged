@@ -10,7 +10,7 @@ const SidebarItem=({ item })=> {
       children = (
         <ul >
           {item.children.map((i) => (
-            <SidebarItem item={i} key={i.id} />
+            <SidebarItem item={i} key={i._id} />
           ))}
         </ul>
       );

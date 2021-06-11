@@ -28,9 +28,9 @@
     }
     &_center{
         float: right;
-        overflow: hidden;
        width: 320px;
        margin-left: 40%;
+      
     }
     &_right{
         display: flex;
@@ -38,7 +38,8 @@
         width: 20%;
         justify-content: space-between;
  align-items: center;
-
+height: 100%;
+margin: 0;
         img{
             display: flex;
             align-items: center;
@@ -69,7 +70,6 @@ color: rgb(82, 82, 82);                font-weight: 450;
 }
 .notifNumber{
     color: #fff;
-    background-color: rgb(220, 0, 78);
     height: 20px;
     display: flex;
     padding: 0 6px;
@@ -89,21 +89,20 @@ display: flex;
 align-self: flex-start;
 }
 .notificationsBox{
-    font-size: 16px;  
+    font-size: 14px;  
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
-    display: flex;
-justify-content: flex-end;
+    margin-left: auto;
+  
+    
 cursor: pointer;
 }
 .listDropdown{
   
-    width: 320px;
+    width: 200px;
     
     color: rgba(0, 0, 0, 0.87);
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -123,6 +122,7 @@ cursor: pointer;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    font-size: 16px;
     &_head{
         background: #0072b1;
         text-align: left;
@@ -153,10 +153,16 @@ cursor: pointer;
     text-overflow: ellipsis;
     width: 50%;
       overflow: hidden; 
+      font-size: 14px;
 
 }
    #notif_div{
         color:#1BA260 !important;
         font-weight: 400;
+        font-size: 14px;
+
     }
+}
+.item a{
+    width: 100%;
 }

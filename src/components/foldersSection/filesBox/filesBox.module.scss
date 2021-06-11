@@ -11,6 +11,27 @@ overflow-y: auto;
 margin: 2% 0;
 
 }
+td:nth-child(1){
+  width: 80px;
+}
+th:nth-child(1){
+  width: 80px;
+}td:nth-child(5){
+  width: 130px;
+}
+th:nth-child(5){
+  width: 130px;
+}td:nth-child(3){
+  width: 130px;
+}
+th:nth-child(3){
+  width: 130px;
+}td:nth-child(4){
+  width: 130px;
+}
+th:nth-child(4){
+  width: 130px;
+}
 $link-color: #f52e62;
 $text-color: #000;
 $hr-color:   rgba(0,0,0,0.35);

@@ -62,7 +62,7 @@ const UploadFile = (props) => {
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
         <div >
-          <input style={{width:"80%"}}
+          <input style={{width:"100%"}}
             type='file'
             onChange={onChange}
             id={style.upload}
@@ -72,7 +72,7 @@ const UploadFile = (props) => {
         </div>
         <br/>
         <Progress percentage={uploadPercentage} />
-                   <Btn style={{marginBottom:'8px'}}  positive>Upload file</Btn>
+                   <Btn style={{display:'flex'}} disabled={props.userTab.length < 2}  positive><i style={{margin:'auto',fontSize:"18px",color:"#ffffff"}} class="upload icon"></i><div style={{marginRight:"auto",fontSize:"16px"}}>Upload file</div></Btn>
       </form>
     </div>
   );

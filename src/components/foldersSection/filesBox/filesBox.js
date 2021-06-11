@@ -18,12 +18,12 @@ export default function FilesBox(props) {
 
 
             <table >
-     <thead>
+     <thead  style={{width:'99%'}}>
               <tr>
                 <th><h4>File</h4></th>
                 <th><h4>file Name</h4> </th>
-                <th><h4>published By</h4></th>
-                <th><h4>published Date</h4></th>
+                <th><h4>Uploaded_By</h4></th>
+                <th><h4>Uploaded_At</h4></th>
                 <th><h4> </h4></th>
 
               </tr>
@@ -31,7 +31,7 @@ export default function FilesBox(props) {
               <tbody>
                 {props.files && props.files.map((file) => (
                   <tr key={file.nom}>
-                    <td style={{ height: 'auto !important', width: 'fit-content', width: '15%' }} component="th" scope="row">
+                    <td component="th" scope="row">
                       <div style={{ width: "40px",display:"flex" }}>
 
 
@@ -43,14 +43,13 @@ export default function FilesBox(props) {
 
 
                     </td>
-                    <td style={{ textAlign: 'left', maxWidth: "40%",width:'40%',wordBreak: "break-word" }} component="th" scope="row">
-                    <div style={{wordBreak:"break-word"}} className={style.tdName}>   {file.nom.split('.')[0]}</div>    
-                    </td>
-                    <td style={{ textAlign: 'left', maxWidth: "20%",width:'20%'}}>                    <div  className={style.tdPb}>   {file.createdBy.username}</div></td>
                     <td >
-                  <div>    {moment(file.createdAt).format('L')}</div>
-                  <div>   {moment(file.createdAt).format('h:mm:ss a')}</div>
-                     
+                    <div style={{  textOverflow: "ellipsis", overflow:" hidden"}}  className={style.tdName}>   {file.nom.split('.')[0]}</div>    
+                    </td>
+                    <td >                    <div  className={style.tdPb}>   {file.createdBy.username}</div></td>
+                    <td >
+                 <div>  {moment(file.createdAt).format('L')}</div> 
+                     <div>{moment(file.createdAt).format('LTS')}</div>
                      </td>
                     <td align='center'>   <div className={style.download}>   Download</div></td>
 

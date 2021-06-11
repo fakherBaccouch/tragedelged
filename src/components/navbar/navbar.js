@@ -12,15 +12,15 @@ import NotificationsActiveOutlinedIcon from '@material-ui/icons/NotificationsAct
 import {UidContext} from '../AppContext';
 import {Link,Router} from "react-router-dom";
 import { Button } from 'semantic-ui-react'
+import { Icon, Label, Menu } from 'semantic-ui-react'
 
 const Navbar = (props) => {
 
   const  uid  = useContext(UidContext);
   const location = useLocation();
-  console.log('uid nav',location);
 
   let pathNavbar = location.pathname.split("/")[1].toUpperCase();
-  const [fileNotif, setFileNotif] = useState(null);
+  const [fileNotif, setFileNotif] = useState([]);
   const [user, setUser] = useState({});
   const [notifDropdown, setNotifDropdown] = useState(false)
   const removeCookie = (key) => {
@@ -28,6 +28,7 @@ const Navbar = (props) => {
       cookie.remove(key, { expires: 1 })
     }
   }
+  console.log("navbar files",fileNotif)
 
   const logout = () => {
     axios({
@@ -38,7 +39,6 @@ const Navbar = (props) => {
       .catch((err) => console.log(err))
   }
   useEffect(() => {
-    console.log("navbar uid",uid)
 
     const fetchFileNotif = async () => {
       await axios({
@@ -46,7 +46,7 @@ const Navbar = (props) => {
         url: `${process.env.REACT_APP_API_URL}api/user/filenotif/${uid}`,
         withCredentials: true
       })
-        .then((res) => { setFileNotif(res.data); console.log('fileNotif', res.data) })
+        .then((res) => { setFileNotif(res.data); })
         .catch((err) => console.log('no file notifs'))
     }
   
@@ -56,7 +56,7 @@ const Navbar = (props) => {
           url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
           withCredentials: true
         })
-          .then((res) => { setUser(res.data); console.log('User', res.data) })
+          .then((res) => { setUser(res.data) })
           .catch((err) => console.log('no user'))
       }
       fetchUser();
@@ -70,12 +70,19 @@ const Navbar = (props) => {
       </div>
       {fileNotif && fileNotif.length > 0 &&
         <div className={style.navbar_center} >
-          <div onClick={() => setNotifDropdown(!notifDropdown)} className={style.notificationsBox}><div style={{background:"blue"}}>NEW FILES <NotificationsActiveOutlinedIcon style={{ fontSize: '35px',color:props.toggled?'black':'white' }} /></div> <div className={style.notifNumber}> {fileNotif.length}</div> </div>
+<Menu className={style.notificationsBox}  compact>
+    
+    <Menu.Item className={style.item}     onClick={() => setNotifDropdown(!notifDropdown)}  as='a'>
+      <Icon name='users'   /> New files
+      <Label color='red' floating>
+        {fileNotif.length}
+      </Label>
+    </Menu.Item>
+  </Menu>
+          {/* <div onClick={() => setNotifDropdown(!notifDropdown)} className={style.notificationsBox}><div style={{background:"blue"}}>NEW FILES <NotificationsActiveOutlinedIcon style={{ fontSize: '35px',color:props.toggled?'black':'white' }} /></div> <div className={style.notifNumber}> {fileNotif.length}</div> </div> */}
           <div style={{ display: notifDropdown ? "block" : "none" }} className={style.listDropdown}>
             
-            <div className={style.listDropdown_head}>
-            <div>  Notifications</div><div> {fileNotif.length}</div>
-            </div>
+          
             <div  className={style.listDropdown_body}>
             {fileNotif && fileNotif.map(notif => {
             return (

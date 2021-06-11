@@ -3,6 +3,7 @@ import {useLocation } from 'react-router-dom'
 import { Roller } from 'react-awesome-spinners'
 
 import Folderspage from './pages/folderspage'
+import Profilepage from './pages/profilepage'
 import Navbar from "./components/navbar/navbar"
 import Sidenav from "./components/sidenav/sidenav"
 import SignIn from "./components/logSection/signin/signin"
@@ -58,11 +59,9 @@ useEffect(
   const [isClicked, setIsClicked] = useState(false);
   const clickMe = () => {
     setIsClicked(!isClicked);
-    console.log(history.location.pathname)
   }
 
   const location = useLocation();
-console.log(location.pathname)
   
 { if(loading || uid == null){return <div>Loading ..</div> }
 else if( uid == false){
@@ -86,6 +85,7 @@ else if( uid == false){
 <Route  path="/signin" component={SignIn} />
 <Route  path="/signup" component={SignUp} />
 <Route    path="/folders">         <Folderspage />          </Route>
+<Route    path="/profile">         <Profilepage />          </Route>
 </Switch>
 </main>
 </div>

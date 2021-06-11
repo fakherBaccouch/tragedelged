@@ -15,7 +15,6 @@ const AddfolderDropdown=()=>{
     }
     const [nom, setNom] = React.useState('');
     let { id } = useParams();
-    console.log("parentId : ",id);
   const addFolder =()=>{
     axios.post(`${process.env.REACT_APP_API_URL}api/folder`, {name : nom , parentId:id}).then(()=> window.location.reload());   
   }

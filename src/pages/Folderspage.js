@@ -4,7 +4,6 @@ import {UidContext} from '../components/AppContext';
 import {Redirect} from 'react-router-dom'
 const Folderspage=()=>{
     const  uid  = useContext(UidContext);
-console.log("folderspage",uid)
     return (
         <div style={{boxSizing:'border-box'}}>
             <div style={{display:'flex'}}>

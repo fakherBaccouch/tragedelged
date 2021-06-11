@@ -17,7 +17,7 @@ import NewHardDisk from "../newHardDisk/newHardDisk"
 const Folders = () => {
   const [items, setItems] = useState();
   useEffect(() => {
-    Axios.get('http://localhost:1212/api/folder/')
+    Axios.get('http://localhost:1212/api/folder/',{withCredentials:true})
       .then(res => { setItems(res.data.folderList); });
   }, []);
   const [hardDiskName, setHardDiskName] = useState('')
@@ -35,7 +35,7 @@ const Folders = () => {
    
             {items && items.length ? <ul >
               {items && items.map((i) => (
-                <SidebarItem item={i} key={i.id} />
+                <SidebarItem item={i} key={i._id} />
               ))}
             </ul> :
               <Segment style={{ height: '100%' }}>
@@ -58,7 +58,7 @@ const Folders = () => {
             </div>
           </Switch>
           <Switch>
-            <Route exact path={`/folders/:id`}>
+            <Route  path={`/folders/:id`}>
               <div className={style.foldersRight} >
                 <AddfolderDropdown />
                 <UploadDropdown />
@@ -77,17 +77,17 @@ const FoldersContent = ({ match }) => {
 
   useEffect( () => {
 
-    Axios.get(`http://localhost:1212/api/user/filenotifUpdate/${id}`,{
-      withCredentials: true
-    })   
+ 
 
     Axios.get(`http://localhost:1212/api/folder/${id}`,{withCredentials:true})
-      .then(res => { setSubs(res.data.folderList); })
+      .then(res => { setSubs(res.data.folderList);console.log("subfolder",res.data.folderList) })
 
     Axios.get(`http://localhost:1212/api/file/${id}`,{withCredentials:true})
-      .then(res => { setFiles(res.data); })
+      .then(res => { setFiles(res.data);console.log("testfiles",files) })
      
-   
+      Axios.get(`http://localhost:1212/api/user/filenotifUpdate/${id}`,{
+         withCredentials: true
+      }).then(res => { console.log(res);})  
 
   }, [id]);
   
